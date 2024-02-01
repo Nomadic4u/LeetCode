@@ -13,7 +13,7 @@ public class LeetCode_2828 {
             }
             if(index== len)
                 return true;
-            return false;
+            return false; 
         }
     }
 }
