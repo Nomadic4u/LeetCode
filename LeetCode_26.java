@@ -1,24 +1,20 @@
 import java.util.Arrays;
 
 public class LeetCode_26 {
-
-        public static  int removeDuplicates(int[] nums) {
+    class Solution {
+        public  int removeDuplicates(int[] nums) {
             int len = nums.length;
-            for(int i = 0; i < nums.length - 1; i++){
-                if(nums[i] ==Integer.MAX_VALUE)
-                    continue;
-                for(int j = i + 1; j < nums.length && nums[i] == nums[j]; j++){
-                    nums[j] = Integer.MAX_VALUE;
+            int count = nums[0], index = 1;
+            for (int i = 1; i < nums.length; i++) {
+                if(nums[i] == count) {
                     len --;
-//                    i = j + 1;
+                } else {
+                    count = nums[i];
+                    nums[index ++] = count;
                 }
             }
-            Arrays.sort(nums, 0, nums.length);
             return len;
         }
-    public static void main(String[] args) {
-        int nums[] = {1, 1};
-        System.out.println(removeDuplicates(nums));
     }
 
 }
