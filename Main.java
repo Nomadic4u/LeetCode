@@ -3,17 +3,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        long a = scanner.nextInt();
-        long b = scanner.nextInt();
-        long m = scanner.nextInt();
-        long count = 1;
-        while (b > 0) {
-            if (b % 2 == 1) {
-                count = count * a % m;
+        String s = scanner.nextLine();
+        int n = s.length();
+        boolean[][] str = new boolean[n][n];
+        int res = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (j - i <= 1) {
+                        str[i][j] = true;
+                        res = Math.max(res, j - i + 1);
+                    } else if (str[i + 1][j - 1]) {
+                        str[i][j] = true;
+                        res = Math.max(res, j - i + 1);
+                    }
+                }
             }
-            b >>= 1;
-            a = a * a % m;
         }
-        System.out.println(count);
+        System.out.println(res);
     }
 }
