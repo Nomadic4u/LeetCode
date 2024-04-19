@@ -1,6 +1,6 @@
 public class LeetCode_128 {
     /**
-     * 暴力解法, 用桶排序, 空间换时间, 但大概率会爆
+     * 暴力解法, 用桶排序, 空间换时间, 但大概率会爆(妈的爆了)
      */
     class Solution {
         public int longestConsecutive(int[] nums) {
