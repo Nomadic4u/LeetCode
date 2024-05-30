@@ -57,25 +57,17 @@ public class LeetCode_15 {
                         temp.add(nums[left]);
                         temp.add(nums[right]);
                         set.add(temp);
-
-//                        while (left < right && nums[left] == nums[left + 1]) left++;
-//                        while (left < right && nums[right] == nums[right - 1]) right--;
-
                         left++;
                         right--;
-                    } else if (sum < 0) {
+                    } else if (sum < 0)
                         left++;
-                    } else {
+                    else
                         right--;
-                    }
                 }
             }
             return new ArrayList<>(set);
         }
-
     }
-
-
 }
 
 

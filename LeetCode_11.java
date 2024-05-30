@@ -8,11 +8,10 @@ public class LeetCode_11 {
             int max = 0;
             for (int i = 0, j = len - 1; i < j;) {
                 max = Math.max((j - i) * Math.min(height[i], height[j]), max);
-                if(height[i] < height[j]) {
+                if(height[i] < height[j])
                     i ++;
-                } else {
+                else
                     j --;
-                }
             }
             return max;
         }
