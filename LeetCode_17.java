@@ -18,6 +18,7 @@ public class LeetCode_17 {
                 if (list.isEmpty()) {
                     for (int j = 0; j < s.length(); j++) {
                         list.add(String.valueOf(s.charAt(j)));
+                        System.out.println(list);
                     }
                 }
                 else {
