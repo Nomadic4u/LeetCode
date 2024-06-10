@@ -27,9 +27,8 @@ public class LeetCode_199 {
         public List<Integer> rightSideView(TreeNode root) {
             List<Integer> list = new ArrayList<>();
             Queue<TreeNode> queue = new LinkedList<>();
-            if (root == null) {
+            if (root == null)
                 return list;
-            }
             queue.add(root);
             while (!queue.isEmpty()) {
                 Stack<Integer> stack = new Stack<>();
@@ -41,7 +40,6 @@ public class LeetCode_199 {
                         queue.add(node.left);
                     if (node.right != null)
                         queue.add(node.right);
-
                 }
                 list.add(stack.peek());
             }

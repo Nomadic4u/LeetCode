@@ -1,4 +1,3 @@
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,22 +25,21 @@ public class LeetCode_102_2 {
 
     class Solution {
         public List<List<Integer>> levelOrder(TreeNode root) {
-            if(root == null) {
+            if (root == null)
                 return new ArrayList<>();
-            }
             List<List<Integer>> list = new ArrayList<>();
-            Queue<TreeNode> q = new LinkedList<>();
-            q.add(root);
-            while (!q.isEmpty()) {
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
                 List<Integer> temp = new ArrayList<>();
-                int len = q.size();
+                int len = queue.size();
                 for (int i = 0; i < len; i++) {
-                    TreeNode node = q.poll();
+                    TreeNode node = queue.poll();
                     temp.add(node.val);
                     if (node.left != null)
-                        q.add(node.left);
+                        queue.add(node.left);
                     if (node.right != null)
-                        q.add(node.right);
+                        queue.add(node.right);
                 }
                 list.add(temp);
             }
