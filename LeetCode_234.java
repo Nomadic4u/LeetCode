@@ -1,4 +1,8 @@
-public class LeetCode_206 {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class LeetCode_234 {
     public class ListNode {
         int val;
         ListNode next;
@@ -19,12 +23,25 @@ public class LeetCode_206 {
     class Solution {
         ListNode tail;
 
-        public ListNode reverseList(ListNode head) {
-            if (head == null)
-                return head;
+        public boolean isPalindrome(ListNode head) {
+            List<Integer> list_1 = new LinkedList<>();
+            ListNode index = head;
+            while (index != null) {
+                list_1.add(index.val);
+                index = index.next;
+            }
+
             reverse(head);
             head.next = null;
-            return tail;
+
+            List<Integer> list_2 = new LinkedList<>();
+            index = tail;
+            while (index != null) {
+                list_2.add(index.val);
+                index = index.next;
+            }
+            return list_1.equals(list_2);
+
         }
 
         public void reverse(ListNode node) {
@@ -34,7 +51,7 @@ public class LeetCode_206 {
             }
             reverse(node.next);
             node.next.next = node;
-
         }
+
     }
 }
