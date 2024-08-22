@@ -1,9 +1,3 @@
-import java.text.BreakIterator;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 public class LeetCode_236_2 {
     public class TreeNode {
         int val;
