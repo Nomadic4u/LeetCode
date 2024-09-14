@@ -7,7 +7,12 @@ public class LeetCode_146 {
             int value;
             Node preNode;
             Node nextNode;
-            public Node(){};
+
+            public Node() {
+            }
+
+            ;
+
             public Node(int key, int value) {
                 this.key = key;
                 this.value = value;
@@ -18,6 +23,7 @@ public class LeetCode_146 {
         private int size;
         private int capacity;
         private Node head, tail;
+
         public LRUCache(int capacity) {
             size = 0;
             this.capacity = capacity;
@@ -29,7 +35,7 @@ public class LeetCode_146 {
 
         public int get(int key) {
             Node node = cache.get(key);
-            if(node == null)
+            if (node == null)
                 return -1;
             else {
                 moveToHead(node);
@@ -39,14 +45,14 @@ public class LeetCode_146 {
 
         public void put(int key, int value) {
             Node node = cache.get(key);
-            if(node == null) {
+            if (node == null) {
                 Node new_node = new Node(key, value);
                 cache.put(key, new_node);
                 addToHead(new_node);
-                size ++;
-                if(size > capacity){
+                size++;
+                if (size > capacity) {
                     cache.remove(removeTail().key);
-                    size --;
+                    size--;
                 }
             } else {
                 node.value = value;
@@ -77,11 +83,4 @@ public class LeetCode_146 {
             return node;
         }
     }
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache obj = new LRUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
 }
