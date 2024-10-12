@@ -1,21 +1,25 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
-        int res = 0;
-        while (n != m && Math.min(n, m) != 1) {
-            res += Math.min(n, m);
-            int last = Math.max(n, m) - Math.min(n, m);
-//            System.out.println(last);
-            int now = Math.min(n, m);
-            n = Math.min(last, now);
-            m = Math.max(last, now);
+        StreamTokenizer st = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+        st.nextToken();
+        long n = (long) st.nval;
+        int temp = 0;
+        for (int i = 0; i < n; i++){
+            st.nextToken();
+            temp = (int) st.nval;
         }
-        res += Math.max(n, m);
-        System.out.println(res);
+        st.nextToken();
+        long m = (long) st.nval;
+        for (int i = 0; i < m; i++){
+            st.nextToken();
+            temp = (int) st.nval;
+        }
+        System.out.println(n * m);
     }
 }
