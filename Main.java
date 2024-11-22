@@ -1,25 +1,40 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StreamTokenizer;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        StreamTokenizer st = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
-        st.nextToken();
-        long n = (long) st.nval;
-        int temp = 0;
-        for (int i = 0; i < n; i++){
-            st.nextToken();
-            temp = (int) st.nval;
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i ++)
+            arr[i] = scanner.nextInt();
+        quick_sort(arr, 0, arr.length - 1);
+        for (int i = 0; i < n; i ++)
+            System.out.println(arr[i]);
+    }
+
+    public static void quick_sort(int[] arr, int left, int right) {
+        if (left >= right)
+            return;
+        int l = left - 1;
+        int r = right + 1;
+        int num = arr[(left + right) / 2];
+        while (l < r) {
+            int mid = (l + r) / 2;
+            do {
+                l++;
+            } while (arr[l] > num);
+            do {
+                r--;
+            } while (arr[r] < num);
+
+            if (l < r) {
+                int temp = arr[l];
+                arr[l] = arr[r];
+                arr[r] = temp;
+            }
         }
-        st.nextToken();
-        long m = (long) st.nval;
-        for (int i = 0; i < m; i++){
-            st.nextToken();
-            temp = (int) st.nval;
-        }
-        System.out.println(n * m);
+        quick_sort(arr, left, r);
+        quick_sort(arr, r + 1, right);
     }
 }
